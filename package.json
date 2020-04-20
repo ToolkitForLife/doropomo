@@ -1,0 +1,12 @@
+{
+  "name": "doropomo",
+  "private": true,
+  "scripts": {
+    "start": "gridsome develop",
+    "build": "gridsome build",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "gridsome": "^0.7.0"
+  }
+}
