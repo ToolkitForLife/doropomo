@@ -1,13 +1,9 @@
 <template>
-    <div class="timer-container">
-        <Timer
-            :phases="phases"
-            :auto-start="autoStart"
-            :long-work-interval="longWorkInterval"
-        />
+    <div class="timer-manager">
+        <Timer :phases="phases" :auto-start="autoStart" :long-work-interval="longWorkInterval" />
         <div class="timer-settings">
             <div>
-                <h2>Times</h2>
+                <h2>Settings</h2>
                 <label for="doropomo-minutes">
                     <input
                         id="doropomo-minutes"
@@ -42,11 +38,7 @@
             <div>
                 <h2>Auto start next round?</h2>
                 <label for="auto-start">
-                    <input
-                        id="auto-start"
-                        type="checkbox"
-                        v-model="autoStart"
-                    />
+                    <input id="auto-start" type="checkbox" v-model="autoStart" />
                     Auto start
                 </label>
             </div>

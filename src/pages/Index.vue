@@ -3,13 +3,19 @@
         <!-- Learn how to use images here: https://gridsome.org/docs/images -->
         <!-- <g-image alt="Example image" src="~/favicon.png" width="135" /> -->
 
-        <h1>Doropomo</h1>
-
-        <TimerManager />
+        <div class="time-break">
+            <header class="container">
+                <Nav />
+            </header>
+            <section class="container">
+                <TimerManager />
+            </section>
+        </div>
     </Layout>
 </template>
 
 <script>
+import Nav from '~/components/Nav.vue';
 import TimerManager from '~/components/TimerManager.vue';
 
 export default {
@@ -17,13 +23,9 @@ export default {
         title: 'Doropomo'
     },
     components: {
+        Nav,
         TimerManager
     }
 };
 </script>
 
-<style>
-.home-links a {
-    margin-right: 1rem;
-}
-</style>

@@ -1,15 +1,13 @@
 <template>
-    <div id="timer">
-        <div class="btn-list">
-            <button type="button" @click="setPhaseDoropomo">Doropomo</button>
-            <button type="button" @click="setPhaseShort">Short Work</button>
-            <button type="button" @click="setPhaseLong">Long Work</button>
+    <div class="timer">
+        <div class="buttons">
+            <button type="button" :class="{ active: isDoropomo}" @click="setPhaseDoropomo">Doropomo</button>
+            <button type="button" :class="{ active: isShortWork }" @click="setPhaseShort">Short Work</button>
+            <button type="button" :class="{ active: isLongWork }" @click="setPhaseLong">Long Work</button>
         </div>
-        <div class="">{{ now }}</div>
+        <div class="timer-number">{{ now }}</div>
         <button type="button" @click="handleClick">{{ btnLabel }}</button>
-        <div>
-            {{ phase.phrase }}
-        </div>
+        <div>{{ phase.phrase }}</div>
     </div>
 </template>
 
@@ -17,6 +15,7 @@
 const WAIT_MS = 1000;
 
 const audio = new Audio('kichen-timer.mp3');
+const formatNumber = n => (n < 10 ? `0${n}` : n);
 
 export default {
     name: 'Timer',
@@ -57,10 +56,10 @@ export default {
             return this.phase.minutes - this.timeRunned;
         },
         now() {
-            const minutes = Math.floor(this.timeLeft / 60);
-            const seconds = Math.floor(this.timeLeft % 60);
+            const minutes = formatNumber(Math.floor(this.timeLeft / 60));
+            const seconds = formatNumber(Math.floor(this.timeLeft % 60));
 
-            return `${minutes}:` + (seconds < 10 ? `0${seconds}` : seconds);
+            return `${minutes}:${seconds}`;
         },
         isDoropomo() {
             return this.phase === this.phases.DOROPOMO;
@@ -175,4 +174,18 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.timer {
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 20px 0px 30px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.timer-number {
+    font-size: 4rem;
+    font-weight: bold;
+}
+</style>

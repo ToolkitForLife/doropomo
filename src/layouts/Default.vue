@@ -1,25 +1,8 @@
 <template>
     <div class="layout">
-        <!-- <header class="header">
-      <strong>
-        <g-link to="/">{{ $static.metadata.siteName }}</g-link>
-      </strong>
-      <nav class="nav">
-        <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/about/">About</g-link>
-      </nav>
-    </header> -->
         <slot />
     </div>
 </template>
-
-<static-query>
-query {
-  metadata {
-    siteName
-  }
-}
-</static-query>
 
 <style>
 body {
@@ -30,19 +13,64 @@ body {
     line-height: 1.5;
 }
 
-.layout {
+a {
+    text-decoration: none;
+}
+/* a:hover {
+    text-decoration: underline;
+} */
+
+.container {
     max-width: 760px;
     margin: 0 auto;
     padding-left: 20px;
     padding-right: 20px;
 }
 
-.header {
+section {
+    padding: 2rem 1rem;
+}
+
+header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    padding: 0.5rem;
+}
+
+button:focus,
+button:active {
+    border: none;
+    background: none;
+    outline: 1px solid rgba(0, 0, 0, 0.2);
+}
+button.active {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.buttons {
+    /* display: flex;
+    justify-content: space-around;
+    align-items: center; */
+}
+
+.time-break {
+    color: #fff;
+    background-color: #44958c;
+}
+
+.flex-inline {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-    height: 80px;
 }
 
 .nav__link {
