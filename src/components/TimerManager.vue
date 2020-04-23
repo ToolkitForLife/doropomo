@@ -64,19 +64,19 @@ import Timer from '~/components/Timer.vue';
 const PHASES = {
     DOROPOMO: {
         label: 'Doropomo',
-        phrase: 'Time for a break',
+        phrase: 'Time to work',
         countRuns: 0,
         minutes: 25
     },
     SHORT_WORK: {
         label: 'Short Work',
-        phrase: 'Time to (short) work',
+        phrase: 'Time to rest...',
         countRuns: 0,
         minutes: 5
     },
     LONG_WORK: {
         label: 'Long Work',
-        phrase: 'Time to (long) work',
+        phrase: 'Time to relax!',
         countRuns: 0,
         minutes: 15
     }

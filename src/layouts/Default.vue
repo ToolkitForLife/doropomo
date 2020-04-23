@@ -5,9 +5,10 @@
 </template>
 
 <style>
+@import 'https://cdn.rawgit.com/h-ibaldo/Raleway_Fixed_Numerals/master/css/rawline.css';
+
 body {
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
-        Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Rawline', 'Helvetica', Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.5;
@@ -28,11 +29,10 @@ a {
 }
 
 section {
-    padding: 2rem 1rem;
+    padding: 1rem;
 }
 
 header {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 button {
@@ -40,10 +40,11 @@ button {
     justify-content: center;
     align-items: center;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.3);
     color: #fff;
-    padding: 0.5rem;
+    padding: .75rem 1.25rem;
+    font-size: 1.2rem;
 }
 
 button:focus,
@@ -56,15 +57,9 @@ button.active {
     background: rgba(0, 0, 0, 0.3);
 }
 
-.buttons {
-    /* display: flex;
-    justify-content: space-around;
-    align-items: center; */
-}
-
 .time-break {
-    color: #fff;
-    background-color: #44958c;
+    color: #000;
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(227,229,230,1) 100%);
 }
 
 .flex-inline {
@@ -75,5 +70,12 @@ button.active {
 
 .nav__link {
     margin-left: 20px;
+}
+
+/* color */
+:root {
+--primary: #D50000;
+--secondary: #00C853;
+--tertiary: #5B4036;
 }
 </style>

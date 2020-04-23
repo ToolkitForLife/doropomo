@@ -1,9 +1,14 @@
 <template>
     <div class="flex-inline">
         <h1>
-            <g-link to="/">Doropomo</g-link>
+            <g-link to="/">
+                <g-image src="~/logo.svg" width="140"/>
+            </g-link>
+            
         </h1>
         <div class="flex-inline">
+            <g-link class="nav__link" to="/">Report</g-link>
+            <g-link class="nav__link" to="/">Settings</g-link>
             <g-link class="nav__link" to="/">Login</g-link>
         </div>
     </div>
@@ -17,6 +22,6 @@ export default {
 
 <style>
 header a {
-    color: #fff;
+    color: #000;
 }
 </style>
