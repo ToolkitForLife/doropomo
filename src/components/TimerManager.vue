@@ -69,13 +69,13 @@ const PHASES = {
         minutes: 25
     },
     SHORT_WORK: {
-        label: 'Short Work',
+        label: 'Short break',
         phrase: 'Time to rest...',
         countRuns: 0,
         minutes: 5
     },
     LONG_WORK: {
-        label: 'Long Work',
+        label: 'Long break',
         phrase: 'Time to relax!',
         countRuns: 0,
         minutes: 15

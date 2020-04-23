@@ -186,7 +186,6 @@ export default {
 
 <style>
 
-
 .timer{
     color: #FFF;
 }

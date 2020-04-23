@@ -7,11 +7,15 @@
 <style>
 @import 'https://cdn.rawgit.com/h-ibaldo/Raleway_Fixed_Numerals/master/css/rawline.css';
 
+
+   
 body {
     font-family: 'Rawline', 'Helvetica', Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.5;
+     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgb(227, 229, 230) 100%) no-repeat;
+
 }
 
 a {
@@ -59,7 +63,6 @@ button.active {
 
 .time-break {
     color: #000;
-    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(227,229,230,1) 100%);
 }
 
 .flex-inline {
