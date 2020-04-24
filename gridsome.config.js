@@ -6,5 +6,7 @@
 
 module.exports = {
     siteName: 'Doropomo',
+    siteUrl: 'https://ToolkitForLife.github.io',
+    pathPrefix: '/doropomo',
     plugins: []
 };

@@ -1,12 +1,17 @@
 {
-  "name": "doropomo",
-  "private": true,
-  "scripts": {
-    "start": "gridsome develop",
-    "build": "gridsome build",
-    "explore": "gridsome explore"
-  },
-  "dependencies": {
-    "gridsome": "^0.7.0"
-  }
+    "name": "doropomo",
+    "private": true,
+    "scripts": {
+        "start": "gridsome develop",
+        "build": "gridsome build",
+        "explore": "gridsome explore",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d dist"
+    },
+    "dependencies": {
+        "gridsome": "^0.7.0"
+    },
+    "devDependencies": {
+        "gh-pages": "^2.2.0"
+    }
 }
