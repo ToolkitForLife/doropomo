@@ -207,12 +207,12 @@ export default {
     padding: 1rem;
     text-align: center;
     border-radius: var(--borda);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-.timer-item *{
-    opacity: 0.5;
+.timer-item {
+    border-radius: var(--borda);
 }
-
 
 .start-stop{
     display: none;
@@ -232,7 +232,11 @@ export default {
     opacity: 1;
 }
 
-.timer-item.active{
+.timer-container .timer-item:nth-child(2){
+    margin:.5rem 0;
+}
+
+.timer-container .timer-item.active{
     width: 400%;
     margin: 0rem;
 }
@@ -251,15 +255,19 @@ export default {
     .timer-container {
         flex-direction: column;
     }
-    .timer-item,
-    .timer-item.active {
+    .timer-container .timer-item,
+    .timer-container .timer-item.active {
         width: inherit;
     }
     .timer-item{
         margin:0 1rem;
     }
+    .timer-container .timer-item:nth-child(2){
+        margin:0 .5rem;
+    }
     .timer-number {
         margin: 1rem 0;
     }
+
 }
 </style>
