@@ -2,20 +2,41 @@
     <div class="timer">
         <h2 class="timer-phrase">{{ phase.phrase }}</h2>
         <div class="timer-container">
-            <div class="timer-item" :class="{ active: isDoropomo}" style="background-color:var(--primary)" @click="setPhaseDoropomo">
+            <div
+                class="timer-item"
+                :class="{ active: isDoropomo}"
+                style="background-color:var(--primary)"
+                @click="setPhaseDoropomo"
+            >
                 <div class="timer-label">{{ phases.DOROPOMO.label }}</div>
-                <div class="timer-number">{{ now }}</div>
-                <button class="start-stop" type="button" @click="handleClick">{{ btnLabel }}</button>
+                <div
+                    class="timer-number"
+                >{{ isDoropomo ? now : formatMinutes(phases.DOROPOMO.minutes) }}</div>
+                <button class="start-stop" type="button" @click.stop="handleClick">{{ btnLabel }}</button>
             </div>
-            <div class="timer-item" :class="{ active: isShortWork }" style="background-color:var(--secondary)" @click="setPhaseShort">
+            <div
+                class="timer-item"
+                :class="{ active: isShortWork }"
+                style="background-color:var(--secondary)"
+                @click="setPhaseShort"
+            >
                 <div class="timer-label">{{ phases.SHORT_WORK.label }}</div>
-                <div class="timer-number">{{ now }}</div>
-                <button class="start-stop" type="button" @click="handleClick">{{ btnLabel }}</button>
+                <div
+                    class="timer-number"
+                >{{ isShortWork ? now : formatMinutes(phases.SHORT_WORK.minutes) }}</div>
+                <button class="start-stop" type="button" @click.stop="handleClick">{{ btnLabel }}</button>
             </div>
-            <div class="timer-item" :class="{ active: isLongWork }" style="background-color:var(--tertiary)" @click="setPhaseLong">
+            <div
+                class="timer-item"
+                :class="{ active: isLongWork }"
+                style="background-color:var(--tertiary)"
+                @click="setPhaseLong"
+            >
                 <div class="timer-label">{{ phases.LONG_WORK.label }}</div>
-                <div class="timer-number">{{ now }}</div>
-                <button class="start-stop" type="button" @click="handleClick">{{ btnLabel }}</button>
+                <div
+                    class="timer-number"
+                >{{ isLongWork ? now : formatMinutes(phases.LONG_WORK.minutes) }}</div>
+                <button class="start-stop" type="button" @click.stop="handleClick">{{ btnLabel }}</button>
             </div>
         </div>
     </div>
@@ -63,7 +84,7 @@ export default {
             return this.isRunning ? 'Stop' : 'Start';
         },
         timeLeft() {
-            return this.phase.minutes - this.timeRunned;
+            return this.phase.minutes * 60 - this.timeRunned;
         },
         now() {
             const minutes = formatNumber(Math.floor(this.timeLeft / 60));
@@ -179,25 +200,27 @@ export default {
             } else {
                 this.start();
             }
+        },
+        formatMinutes(minutes) {
+            return `${formatNumber(minutes)}:00`;
         }
     }
 };
 </script>
 
 <style>
-
-.timer{
-    color: #FFF;
+.timer {
+    color: #fff;
 }
-.timer-container{
+.timer-container {
     display: flex;
-    color: #FFF;
+    color: #fff;
 }
 
-.timer h2.timer-phrase{
+.timer h2.timer-phrase {
     color: var(--tertiary);
     text-align: center;
-    margin:0 0 2rem 0;
+    margin: 0 0 2rem 0;
 }
 
 .timer-item {
@@ -207,18 +230,18 @@ export default {
     padding: 1rem;
     text-align: center;
     border-radius: var(--borda);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .timer-item {
     border-radius: var(--borda);
 }
 
-.start-stop{
+.start-stop {
     display: none;
     font-weight: 500;
-    background-color:var(--secondary);
-    box-shadow:.0 .25rem 0px 0px var(--tertiary);
+    background-color: var(--secondary);
+    box-shadow: 0 0.25rem 0px 0px var(--tertiary);
 }
 
 .timer-number {
@@ -228,21 +251,21 @@ export default {
 }
 
 /* card ativo */
-.timer-item.active *{
+.timer-item.active * {
     opacity: 1;
 }
 
-.timer-container .timer-item:nth-child(2){
-    margin:.5rem 0;
+.timer-container .timer-item:nth-child(2) {
+    margin: 0.5rem 0;
 }
 
-.timer-container .timer-item.active{
+.timer-container .timer-item.active {
     width: 400%;
     margin: 0rem;
 }
 
-.timer-item.active .start-stop{
-   display: inline-flex;
+.timer-item.active .start-stop {
+    display: inline-flex;
 }
 
 .timer-item.active .timer-number {
@@ -259,15 +282,14 @@ export default {
     .timer-container .timer-item.active {
         width: inherit;
     }
-    .timer-item{
-        margin:0 1rem;
+    .timer-item {
+        margin: 0 1rem;
     }
-    .timer-container .timer-item:nth-child(2){
-        margin:0 .5rem;
+    .timer-container .timer-item:nth-child(2) {
+        margin: 0 0.5rem;
     }
     .timer-number {
         margin: 1rem 0;
     }
-
 }
 </style>
