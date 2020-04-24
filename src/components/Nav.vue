@@ -2,15 +2,14 @@
     <div class="flex-inline">
         <h1>
             <g-link to="/">
-                <g-image src="/logo.svg" width="140"/>
+                <g-image src="/logo.svg" width="140" />
             </g-link>
-            
         </h1>
-        <div class="flex-inline">
+        <!-- <div class="flex-inline">
             <g-link class="nav__link" to="/report">Report</g-link>
-            <g-link class="nav__link" to="/">Settings</g-link>
+            <g-link class="nav__link" to="/?settings=true">Settings</g-link>
             <g-link class="nav__link" to="/login">Login</g-link>
-        </div>
+        </div> -->
     </div>
 </template>
 
