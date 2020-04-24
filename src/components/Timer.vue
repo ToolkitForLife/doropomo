@@ -4,15 +4,25 @@
         <div class="timer-container">
             <div
                 class="timer-item"
-                :class="{ active: isDoropomo}"
+                :class="{ active: isDoropomo }"
                 style="background-color:var(--primary)"
                 @click="setPhaseDoropomo"
             >
                 <div class="timer-label">{{ phases.DOROPOMO.label }}</div>
-                <div
-                    class="timer-number"
-                >{{ isDoropomo ? now : formatMinutes(phases.DOROPOMO.minutes) }}</div>
-                <button class="start-stop" type="button" @click.stop="handleClick">{{ btnLabel }}</button>
+                <div class="timer-number">
+                    {{
+                        isDoropomo
+                            ? now
+                            : formatMinutes(phases.DOROPOMO.minutes)
+                    }}
+                </div>
+                <button
+                    class="start-stop"
+                    type="button"
+                    @click.stop="handleClick"
+                >
+                    {{ btnLabel }}
+                </button>
             </div>
             <div
                 class="timer-item"
@@ -21,10 +31,20 @@
                 @click="setPhaseShort"
             >
                 <div class="timer-label">{{ phases.SHORT_WORK.label }}</div>
-                <div
-                    class="timer-number"
-                >{{ isShortWork ? now : formatMinutes(phases.SHORT_WORK.minutes) }}</div>
-                <button class="start-stop" type="button" @click.stop="handleClick">{{ btnLabel }}</button>
+                <div class="timer-number">
+                    {{
+                        isShortWork
+                            ? now
+                            : formatMinutes(phases.SHORT_WORK.minutes)
+                    }}
+                </div>
+                <button
+                    class="start-stop"
+                    type="button"
+                    @click.stop="handleClick"
+                >
+                    {{ btnLabel }}
+                </button>
             </div>
             <div
                 class="timer-item"
@@ -33,10 +53,20 @@
                 @click="setPhaseLong"
             >
                 <div class="timer-label">{{ phases.LONG_WORK.label }}</div>
-                <div
-                    class="timer-number"
-                >{{ isLongWork ? now : formatMinutes(phases.LONG_WORK.minutes) }}</div>
-                <button class="start-stop" type="button" @click.stop="handleClick">{{ btnLabel }}</button>
+                <div class="timer-number">
+                    {{
+                        isLongWork
+                            ? now
+                            : formatMinutes(phases.LONG_WORK.minutes)
+                    }}
+                </div>
+                <button
+                    class="start-stop"
+                    type="button"
+                    @click.stop="handleClick"
+                >
+                    {{ btnLabel }}
+                </button>
             </div>
         </div>
     </div>
