@@ -1,6 +1,7 @@
 <template>
     <div class="layout">
         <slot />
+        <footer />
     </div>
 </template>
 
@@ -8,14 +9,12 @@
 @import 'https://cdn.rawgit.com/h-ibaldo/Raleway_Fixed_Numerals/master/css/rawline.css';
 
 
-   
 body {
     font-family: 'Rawline', 'Helvetica', Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.5;
      background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgb(227, 229, 230) 100%) no-repeat;
-
 }
 
 a {
@@ -39,12 +38,21 @@ section {
 header {
 }
 
+h2 {
+    font-weight: 250;
+    font-size: 2rem;
+}
+
+p{
+    line-height: 2.5rem;
+}
+
 button {
     display: inline-flex;
     justify-content: center;
     align-items: center;
     border: none;
-    border-radius: 8px;
+    border-radius: var(--borda);
     background: rgba(255, 255, 255, 0.3);
     color: #fff;
     padding: .75rem 1.25rem;
@@ -80,5 +88,6 @@ button.active {
 --primary: #D50000;
 --secondary: #00C853;
 --tertiary: #5B4036;
+--borda:8px;
 }
 </style>

@@ -7,6 +7,14 @@
             <section class="container">
                 <TimerManager />
             </section>
+            <section class="container">
+                <Explaining />
+            </section>    
+            <section class="bg-testimonial">        
+                <div class="container">
+                    <Testimonial />
+                </div>
+            </section>
         </div>
     </Layout>
 </template>
@@ -14,6 +22,8 @@
 <script>
 import Nav from '~/components/Nav.vue';
 import TimerManager from '~/components/TimerManager.vue';
+import Explaining from '~/components/Explaining.vue';
+import Testimonial from '~/components/Testimonial.vue';
 
 export default {
     metaInfo: {
@@ -21,8 +31,9 @@ export default {
     },
     components: {
         Nav,
-        TimerManager
+        TimerManager,
+        Explaining,
+        Testimonial
     }
 };
 </script>
-

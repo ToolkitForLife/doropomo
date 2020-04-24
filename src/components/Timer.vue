@@ -1,6 +1,6 @@
 <template>
     <div class="timer">
-        <div class="timer-phrase">{{ phase.phrase }}</div>
+        <h2 class="timer-phrase">{{ phase.phrase }}</h2>
         <div class="timer-container">
             <div class="timer-item" :class="{ active: isDoropomo}" style="background-color:var(--primary)" @click="setPhaseDoropomo">
                 <div class="timer-label">{{ phases.DOROPOMO.label }}</div>
@@ -194,12 +194,10 @@ export default {
     color: #FFF;
 }
 
-.timer-phrase{
+.timer h2.timer-phrase{
     color: var(--tertiary);
-    font-size: 2rem;
-    font-weight: 250;
     text-align: center;
-    margin-bottom: 2rem;
+    margin:0 0 2rem 0;
 }
 
 .timer-item {
@@ -208,11 +206,13 @@ export default {
     width: 100%;
     padding: 1rem;
     text-align: center;
+    border-radius: var(--borda);
 }
 
 .timer-item *{
     opacity: 0.5;
 }
+
 
 .start-stop{
     display: none;
@@ -235,7 +235,6 @@ export default {
 .timer-item.active{
     width: 400%;
     margin: 0rem;
-    border-radius: 8px;
 }
 
 .timer-item.active .start-stop{
@@ -246,5 +245,21 @@ export default {
     font-size: 4rem;
     margin: 1rem 0;
     font-weight: 700;
+}
+/* for mobile */
+@media (max-width: 600px) {
+    .timer-container {
+        flex-direction: column;
+    }
+    .timer-item,
+    .timer-item.active {
+        width: inherit;
+    }
+    .timer-item{
+        margin:0 1rem;
+    }
+    .timer-number {
+        margin: 1rem 0;
+    }
 }
 </style>

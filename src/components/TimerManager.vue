@@ -100,4 +100,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.timer-settings{
+    background-color: #FFF;
+    border-radius: var(--borda);
+    padding: 2rem;
+    margin-top: 2rem;
+}
+</style>
