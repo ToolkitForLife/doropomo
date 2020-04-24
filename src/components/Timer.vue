@@ -75,7 +75,11 @@
 <script>
 const WAIT_MS = 1000;
 
-const audio = new Audio('kichen-timer.mp3');
+let audio;
+
+if (process.isClient) {
+    audio = new Audio('kichen-timer.mp3');
+}
 const formatNumber = n => (n < 10 ? `0${n}` : n);
 
 export default {
