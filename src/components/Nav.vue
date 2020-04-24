@@ -2,7 +2,7 @@
     <div class="flex-inline">
         <h1>
             <g-link to="/">
-                <g-image src="/logo.svg" width="140" />
+                <g-image :src="$url('/logo.svg')" width="140" />
             </g-link>
         </h1>
         <!-- <div class="flex-inline">
