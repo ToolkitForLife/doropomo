@@ -1,10 +1,6 @@
 <template>
-    <div class="flex-inline">
-        <div class="flex-inline">
-            <g-link class="nav__link" to="/report">Report</g-link>
-            <g-link class="nav__link" to="/">Settings</g-link>
-            <g-link class="nav__link" to="/login">Login</g-link>
-        </div>
+    <div class="container">
+        <p>Made with ❤ using <span>{{ (Math.random() * 10).toFixed(2) }}</span> Doropomos by <a href="http://felipedario.com.br/" target="_blank">Felipe Dário</a> and <a href="https://leonardomerlin.com.br/" target="_blank">Leonardo Merlin</a>        </p>
     </div>
 </template>
 
@@ -12,10 +8,17 @@
 export default {
     name: 'Footer'
 };
-</script>
 
+</script>
 <style>
-header a {
-   
+footer p{
+    margin:0;
+    font-size: .75rem;
+    text-align: center;
+    line-height: 1rem;
+}
+
+footer p a{
+    text-decoration: underline;
 }
 </style>

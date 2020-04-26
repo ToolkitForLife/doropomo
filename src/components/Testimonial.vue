@@ -47,8 +47,7 @@ a{
 }
 
 .testimonial p{
-    margin: .5rem 0;
+    margin: .5rem 0 0 0;
+    line-height: 1.25rem;
 }
-
-
 </style>

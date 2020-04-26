@@ -8,6 +8,11 @@
                 style="background-color:var(--primary)"
                 @click="setPhaseDoropomo"
             >
+                <div class="timer-progess-bar">                    
+                    <div class="timer-progess-bar-gone" style="width:calc(75% - 10rem)">
+                        
+                    </div>
+                </div>
                 <div class="timer-label">{{ phases.DOROPOMO.label }}</div>
                 <div class="timer-number">
                     {{
@@ -23,6 +28,13 @@
                 >
                     {{ btnLabel }}
                 </button>
+                <div class="auto-start">
+                    <p>Auto start next?</p>
+                    <span class="ui-switch is-animated">
+			            <input type="checkbox" class="ui-checkbox">
+			            <span class="ui-button"></span>
+                    </span>
+                </div>
             </div>
             <div
                 class="timer-item"
@@ -30,6 +42,11 @@
                 style="background-color:var(--secondary)"
                 @click="setPhaseShort"
             >
+                <div class="timer-progess-bar">                    
+                    <div class="timer-progess-bar-gone">
+                        &nbsp;
+                    </div>
+                </div>            
                 <div class="timer-label">{{ phases.SHORT_WORK.label }}</div>
                 <div class="timer-number">
                     {{
@@ -52,6 +69,11 @@
                 style="background-color:var(--tertiary)"
                 @click="setPhaseLong"
             >
+                <div class="timer-progess-bar">                    
+                    <div class="timer-progess-bar-gone">
+                        &nbsp;
+                    </div>
+                </div>
                 <div class="timer-label">{{ phases.LONG_WORK.label }}</div>
                 <div class="timer-number">
                     {{
@@ -269,6 +291,7 @@ export default {
 
 .timer-item {
     border-radius: var(--borda);
+    position:relative;
 }
 
 .start-stop {
@@ -307,6 +330,51 @@ export default {
     margin: 1rem 0;
     font-weight: 700;
 }
+
+.timer-progess-bar,
+.timer-progess-bar-gone{
+    width: 100%;
+    height: .5rem;
+    border-radius: var(--borda);
+}
+.timer-progess-bar{
+    background-color:rgba(0, 0, 0, 0.25);
+    margin-bottom: 1rem;
+    display: none;
+    border-top:1px solid rgba(0, 0, 0, 0.25);
+}
+
+.timer-progess-bar-gone{
+    width: 99%;
+    background-color: #FFF;
+    margin-top: -1px;
+    height: calc(.5rem + 1px);
+}
+
+/* switch */
+.auto-start{
+    position: absolute;
+    bottom: 1rem;;
+    right: 1rem;
+    display: none;
+}
+.auto-start p {
+    line-height: 1rem;
+    font-size: .75rem;
+    margin: 0.5rem;
+}
+
+.ui-switch { display:inline-block; position:relative; background-color:rgba(0, 0, 0, 0.25);    border-top:1px solid rgba(0, 0, 0, 0.25); border-radius:16px; }
+.is-animated .ui-button { transition:margin ease-out .2s, border ease-in .2s }
+.timer-item.active .ui-checkbox { opacity:0; display:block; position:absolute; top:0; width:100%; height:100%; margin:0; }
+.ui-button { display:block; width:16px; height:16px; margin:0px 24px 2px 2px; background-color:#CCC; border-radius:9px }
+.ui-checkbox:checked + .ui-button { margin:0px 2px 2px 24px; background-color:var(--secondary); }
+
+.timer-item.active .timer-progess-bar,
+.timer-item.active .auto-start{
+    display: block;
+}
+
 /* for mobile */
 @media (max-width: 600px) {
     .timer-container {

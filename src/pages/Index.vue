@@ -15,6 +15,9 @@
                     <Testimonial />
                 </div>
             </section>
+            <footer>
+                <Footer />        
+            </footer>
         </div>
     </Layout>
 </template>
@@ -24,6 +27,7 @@ import Nav from '~/components/Nav.vue';
 import TimerManager from '~/components/TimerManager.vue';
 import Explaining from '~/components/Explaining.vue';
 import Testimonial from '~/components/Testimonial.vue';
+import Footer from '~/components/Footer.vue';
 
 export default {
     metaInfo: {
@@ -33,7 +37,8 @@ export default {
         Nav,
         TimerManager,
         Explaining,
-        Testimonial
+        Testimonial,
+        Footer
     }
 };
 </script>

@@ -1,7 +1,6 @@
 <template>
     <div class="layout">
         <slot />
-        <footer />
     </div>
 </template>
 
@@ -14,7 +13,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.5;
-     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgb(227, 229, 230) 100%) no-repeat;
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgb(227, 229, 230) 100%) no-repeat;
 }
 
 a {
@@ -36,6 +35,12 @@ section {
 }
 
 header {
+}
+
+footer{
+    background-color: #000;
+    color: #FFF;
+    padding: .5rem;
 }
 
 h2 {
