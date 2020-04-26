@@ -23,6 +23,7 @@
                 </div>
                 <button
                     class="start-stop"
+                    style="background-color:var(--secondary)"                    
                     type="button"
                     @click.stop="handleClick"
                 >
@@ -297,8 +298,7 @@ export default {
 .start-stop {
     display: none;
     font-weight: 500;
-    background-color: var(--secondary);
-    box-shadow: 0 0.25rem 0px 0px var(--tertiary);
+    border-bottom:2px solid rgba(0, 0, 0, 0.5);
 }
 
 .timer-number {

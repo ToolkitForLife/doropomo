@@ -68,10 +68,10 @@ button:focus,
 button:active {
     border: none;
     background: none;
-    outline: 1px solid rgba(0, 0, 0, 0.2);
+    outline: 2px solid rgba(0, 0, 0, 0.25);
 }
 button.active {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .time-break {
