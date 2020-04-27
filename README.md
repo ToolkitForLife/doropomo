@@ -12,7 +12,7 @@
 -   [x] Add Timers - break, short work, long work
 -   [x] Add notifications (sound)
 -   [ ] Add settings w/ restrictions - work cannot be greater than breaks
--   [ ] Add styles
+-   [x] Add styles
 -   [ ] Add copy and documentation
 -   [ ] Add ads
 -   [ ] Add subscription
