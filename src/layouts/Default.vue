@@ -68,7 +68,7 @@ button:focus,
 button:active {
     border: none;
     background: none;
-    outline: 2px solid rgba(0, 0, 0, 0.25);
+    margin-top:2px;
 }
 button.active {
     background: rgba(0, 0, 0, 0.5);

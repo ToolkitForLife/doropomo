@@ -4,12 +4,12 @@
         <div class="timer-container">
             <div
                 class="timer-item"
-                :class="{ active: isDoropomo }"
+                :class="{ active: isDoropomo, left: isShortWork||isLongWork }"
                 style="background-color:var(--primary)"
                 @click="setPhaseDoropomo"
             >
                 <div class="timer-progess-bar">                    
-                    <div class="timer-progess-bar-gone" style="width:calc(75% - 10rem)">
+                    <div class="timer-progess-bar-gone" style="width:1010%">
                         
                     </div>
                 </div>
@@ -32,14 +32,18 @@
                 <div class="auto-start">
                     <p>Auto start next?</p>
                     <span class="ui-switch is-animated">
-			            <input type="checkbox" class="ui-checkbox">
+			            <input  id="auto-start"
+                                type="checkbox"
+                                v-model="autoStart" 
+                                class="ui-checkbox"
+                        >
 			            <span class="ui-button"></span>
                     </span>
                 </div>
             </div>
             <div
                 class="timer-item"
-                :class="{ active: isShortWork }"
+                :class="{ active: isShortWork, right: isDoropomo, left: isLongWork  }"
                 style="background-color:var(--secondary)"
                 @click="setPhaseShort"
             >
@@ -66,7 +70,7 @@
             </div>
             <div
                 class="timer-item"
-                :class="{ active: isLongWork }"
+                :class="{ active: isLongWork, right: isShortWork||isDoropomo }"
                 style="background-color:var(--tertiary)"
                 @click="setPhaseLong"
             >
@@ -290,6 +294,14 @@ export default {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
+.timer-item.right{
+    border-radius:0 var(--borda) var(--borda) 0;
+}
+
+.timer-item.left{
+    border-radius: var(--borda) 0 0 var(--borda);
+}
+
 .timer-item {
     border-radius: var(--borda);
     position:relative;
@@ -345,6 +357,7 @@ export default {
 }
 
 .timer-progess-bar-gone{
+    max-width: 100%;
     width: 99%;
     background-color: #FFF;
     margin-top: -1px;
@@ -391,7 +404,14 @@ export default {
         margin: 0 0.5rem;
     }
     .timer-number {
-        margin: 1rem 0;
+        margin: 0;
+    }
+    .timer-item.right{
+        border-radius:0 0 var(--borda) var(--borda);
+    }
+
+    .timer-item.left{
+        border-radius: var(--borda) var(--borda) 0 0;
     }
 }
 </style>
