@@ -8,36 +8,33 @@
                 style="background-color:var(--primary)"
                 @click="setPhaseDoropomo"
             >
-                <div class="timer-progess-bar">                    
-                    <div class="timer-progess-bar-gone" style="width:1010%">
-                        
-                    </div>
+                <div class="timer-progess-bar">
+                    <div class="timer-progess-bar-gone" style="width:1010%"></div>
                 </div>
                 <div class="timer-label">{{ phases.DOROPOMO.label }}</div>
                 <div class="timer-number">
                     {{
-                        isDoropomo
-                            ? now
-                            : formatMinutes(phases.DOROPOMO.minutes)
+                    isDoropomo
+                    ? now
+                    : formatMinutes(phases.DOROPOMO.minutes)
                     }}
                 </div>
                 <button
                     class="start-stop"
-                    style="background-color:var(--secondary)"                    
+                    style="background-color:var(--secondary)"
                     type="button"
                     @click.stop="handleClick"
-                >
-                    {{ btnLabel }}
-                </button>
+                >{{ btnLabel }}</button>
                 <div class="auto-start">
                     <p>Auto start next?</p>
                     <span class="ui-switch is-animated">
-			            <input  id="auto-start"
-                                type="checkbox"
-                                v-model="autoStart" 
-                                class="ui-checkbox"
-                        >
-			            <span class="ui-button"></span>
+                        <input
+                            id="auto-start"
+                            type="checkbox"
+                            v-model="autoStart"
+                            class="ui-checkbox"
+                        />
+                        <span class="ui-button"></span>
                     </span>
                 </div>
             </div>
@@ -47,26 +44,18 @@
                 style="background-color:var(--secondary)"
                 @click="setPhaseShort"
             >
-                <div class="timer-progess-bar">                    
-                    <div class="timer-progess-bar-gone">
-                        &nbsp;
-                    </div>
-                </div>            
+                <div class="timer-progess-bar">
+                    <div class="timer-progess-bar-gone">&nbsp;</div>
+                </div>
                 <div class="timer-label">{{ phases.SHORT_WORK.label }}</div>
                 <div class="timer-number">
                     {{
-                        isShortWork
-                            ? now
-                            : formatMinutes(phases.SHORT_WORK.minutes)
+                    isShortWork
+                    ? now
+                    : formatMinutes(phases.SHORT_WORK.minutes)
                     }}
                 </div>
-                <button
-                    class="start-stop"
-                    type="button"
-                    @click.stop="handleClick"
-                >
-                    {{ btnLabel }}
-                </button>
+                <button class="start-stop" type="button" @click.stop="handleClick">{{ btnLabel }}</button>
             </div>
             <div
                 class="timer-item"
@@ -74,26 +63,18 @@
                 style="background-color:var(--tertiary)"
                 @click="setPhaseLong"
             >
-                <div class="timer-progess-bar">                    
-                    <div class="timer-progess-bar-gone">
-                        &nbsp;
-                    </div>
+                <div class="timer-progess-bar">
+                    <div class="timer-progess-bar-gone">&nbsp;</div>
                 </div>
                 <div class="timer-label">{{ phases.LONG_WORK.label }}</div>
                 <div class="timer-number">
                     {{
-                        isLongWork
-                            ? now
-                            : formatMinutes(phases.LONG_WORK.minutes)
+                    isLongWork
+                    ? now
+                    : formatMinutes(phases.LONG_WORK.minutes)
                     }}
                 </div>
-                <button
-                    class="start-stop"
-                    type="button"
-                    @click.stop="handleClick"
-                >
-                    {{ btnLabel }}
-                </button>
+                <button class="start-stop" type="button" @click.stop="handleClick">{{ btnLabel }}</button>
             </div>
         </div>
     </div>
@@ -184,7 +165,7 @@ export default {
             this.$emit('stopped');
         },
         tick() {
-            if (this.timeRunned < this.phase.minutes) {
+            if (this.timeLeft > 0) {
                 this.timeRunned++;
                 this.$emit('tick', this.timeRunned);
                 this.updateTitle();
@@ -214,17 +195,20 @@ export default {
                 console.error(error);
             }
         },
+        setPhase(newPhase) {
+            if (this.phase !== newPhase) {
+                this.phase = newPhase;
+                this.reset();
+            }
+        },
         setPhaseDoropomo() {
-            this.phase = this.phases.DOROPOMO;
-            this.reset();
+            this.setPhase(this.phases.DOROPOMO);
         },
         setPhaseShort() {
-            this.phase = this.phases.SHORT_WORK;
-            this.reset();
+            this.setPhase(this.phases.SHORT_WORK);
         },
         setPhaseLong() {
-            this.phase = this.phases.LONG_WORK;
-            this.reset();
+            this.setPhase(this.phases.LONG_WORK);
         },
         selectNextPhase() {
             if (this.phase === this.phases.DOROPOMO) {
@@ -294,23 +278,23 @@ export default {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-.timer-item.right{
-    border-radius:0 var(--borda) var(--borda) 0;
+.timer-item.right {
+    border-radius: 0 var(--borda) var(--borda) 0;
 }
 
-.timer-item.left{
+.timer-item.left {
     border-radius: var(--borda) 0 0 var(--borda);
 }
 
 .timer-item {
     border-radius: var(--borda);
-    position:relative;
+    position: relative;
 }
 
 .start-stop {
     display: none;
     font-weight: 500;
-    border-bottom:2px solid rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
 }
 
 .timer-number {
@@ -344,47 +328,73 @@ export default {
 }
 
 .timer-progess-bar,
-.timer-progess-bar-gone{
+.timer-progess-bar-gone {
     width: 100%;
-    height: .5rem;
+    height: 0.5rem;
     border-radius: var(--borda);
 }
-.timer-progess-bar{
-    background-color:rgba(0, 0, 0, 0.25);
+.timer-progess-bar {
+    background-color: rgba(0, 0, 0, 0.25);
     margin-bottom: 1rem;
     display: none;
-    border-top:1px solid rgba(0, 0, 0, 0.25);
+    border-top: 1px solid rgba(0, 0, 0, 0.25);
 }
 
-.timer-progess-bar-gone{
+.timer-progess-bar-gone {
     max-width: 100%;
     width: 99%;
-    background-color: #FFF;
+    background-color: #fff;
     margin-top: -1px;
-    height: calc(.5rem + 1px);
+    height: calc(0.5rem + 1px);
 }
 
 /* switch */
-.auto-start{
+.auto-start {
     position: absolute;
-    bottom: 1rem;;
+    bottom: 1rem;
     right: 1rem;
     display: none;
 }
 .auto-start p {
     line-height: 1rem;
-    font-size: .75rem;
+    font-size: 0.75rem;
     margin: 0.5rem;
 }
 
-.ui-switch { display:inline-block; position:relative; background-color:rgba(0, 0, 0, 0.25);    border-top:1px solid rgba(0, 0, 0, 0.25); border-radius:16px; }
-.is-animated .ui-button { transition:margin ease-out .2s, border ease-in .2s }
-.timer-item.active .ui-checkbox { opacity:0; display:block; position:absolute; top:0; width:100%; height:100%; margin:0; }
-.ui-button { display:block; width:16px; height:16px; margin:0px 24px 2px 2px; background-color:#CCC; border-radius:9px }
-.ui-checkbox:checked + .ui-button { margin:0px 2px 2px 24px; background-color:var(--secondary); }
+.ui-switch {
+    display: inline-block;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-top: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+}
+.is-animated .ui-button {
+    transition: margin ease-out 0.2s, border ease-in 0.2s;
+}
+.timer-item.active .ui-checkbox {
+    opacity: 0;
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+.ui-button {
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin: 0px 24px 2px 2px;
+    background-color: #ccc;
+    border-radius: 9px;
+}
+.ui-checkbox:checked + .ui-button {
+    margin: 0px 2px 2px 24px;
+    background-color: var(--secondary);
+}
 
 .timer-item.active .timer-progess-bar,
-.timer-item.active .auto-start{
+.timer-item.active .auto-start {
     display: block;
 }
 
@@ -406,11 +416,11 @@ export default {
     .timer-number {
         margin: 0;
     }
-    .timer-item.right{
-        border-radius:0 0 var(--borda) var(--borda);
+    .timer-item.right {
+        border-radius: 0 0 var(--borda) var(--borda);
     }
 
-    .timer-item.left{
+    .timer-item.left {
         border-radius: var(--borda) var(--borda) 0 0;
     }
 }
