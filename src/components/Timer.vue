@@ -8,9 +8,7 @@
                 style="background-color:var(--primary)"
                 @click="setPhaseDoropomo"
             >
-                <div class="timer-progess-bar">
-                    <div class="timer-progess-bar-gone" style="width:1010%"></div>
-                </div>
+                <Progress :max="totalInSeconds" :value="timeRunned" />
                 <div class="timer-label">{{ phases.DOROPOMO.label }}</div>
                 <div class="timer-number">
                     {{
@@ -44,9 +42,7 @@
                 style="background-color:var(--secondary)"
                 @click="setPhaseShort"
             >
-                <div class="timer-progess-bar">
-                    <div class="timer-progess-bar-gone">&nbsp;</div>
-                </div>
+                <Progress :max="totalInSeconds" :value="timeRunned" />
                 <div class="timer-label">{{ phases.SHORT_WORK.label }}</div>
                 <div class="timer-number">
                     {{
@@ -63,9 +59,7 @@
                 style="background-color:var(--tertiary)"
                 @click="setPhaseLong"
             >
-                <div class="timer-progess-bar">
-                    <div class="timer-progess-bar-gone">&nbsp;</div>
-                </div>
+                <Progress :max="totalInSeconds" :value="timeRunned" />
                 <div class="timer-label">{{ phases.LONG_WORK.label }}</div>
                 <div class="timer-number">
                     {{
@@ -81,6 +75,7 @@
 </template>
 
 <script>
+import Progress from '~/components/Progress.vue';
 const WAIT_MS = 1000;
 
 let audio;
@@ -105,6 +100,9 @@ export default {
             default: 4
         }
     },
+    components: {
+        Progress
+    },
     data() {
         return {
             isRunning: false,
@@ -125,8 +123,11 @@ export default {
         btnLabel() {
             return this.isRunning ? 'Stop' : 'Start';
         },
+        totalInSeconds() {
+            return this.phase.minutes * 60;
+        },
         timeLeft() {
-            return this.phase.minutes * 60 - this.timeRunned;
+            return this.totalInSeconds - this.timeRunned;
         },
         now() {
             const minutes = formatNumber(Math.floor(this.timeLeft / 60));
@@ -325,27 +326,6 @@ export default {
     font-size: 4rem;
     margin: 1rem 0;
     font-weight: 700;
-}
-
-.timer-progess-bar,
-.timer-progess-bar-gone {
-    width: 100%;
-    height: 0.5rem;
-    border-radius: var(--borda);
-}
-.timer-progess-bar {
-    background-color: rgba(0, 0, 0, 0.25);
-    margin-bottom: 1rem;
-    display: none;
-    border-top: 1px solid rgba(0, 0, 0, 0.25);
-}
-
-.timer-progess-bar-gone {
-    max-width: 100%;
-    width: 99%;
-    background-color: #fff;
-    margin-top: -1px;
-    height: calc(0.5rem + 1px);
 }
 
 /* switch */
