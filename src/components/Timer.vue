@@ -8,7 +8,25 @@
                 style="background-color:var(--primary)"
                 @click="setPhaseDoropomo"
             >
-                <Progress :max="totalInSeconds" :value="timeRunned" />
+                <header>
+                    <template v-if="!isRunning">
+                        <div class="flex-inline">
+                            <div class="col"></div>
+                            <div class="col">
+                                <button
+                                    type="button"
+                                    class="btn btn-link"
+                                    @click="$parent.showSettings"
+                                >
+                                    <IconSettings />Settings
+                                </button>
+                            </div>
+                        </div>
+                    </template>
+                    <template v-if="isRunning">
+                        <Progress :max="totalInSeconds" :value="timeRunned" />
+                    </template>
+                </header>
                 <div class="timer-label">{{ phases.DOROPOMO.label }}</div>
                 <div class="timer-number">
                     {{
@@ -23,18 +41,18 @@
                     type="button"
                     @click.stop="handleClick"
                 >{{ btnLabel }}</button>
-                <div class="auto-start">
+                <!-- <div class="auto-start">
                     <p>Auto start next?</p>
                     <span class="ui-switch is-animated">
                         <input
                             id="auto-start"
                             type="checkbox"
-                            v-model="autoStart"
+                            :value="autoStart"
                             class="ui-checkbox"
                         />
                         <span class="ui-button"></span>
                     </span>
-                </div>
+                </div>-->
             </div>
             <div
                 class="timer-item"
@@ -76,6 +94,8 @@
 
 <script>
 import Progress from '~/components/Progress.vue';
+import IconSettings from '~/components/icons/IconSettings.vue';
+
 const WAIT_MS = 1000;
 
 let audio;
@@ -101,7 +121,8 @@ export default {
         }
     },
     components: {
-        Progress
+        Progress,
+        IconSettings
     },
     data() {
         return {
@@ -112,6 +133,8 @@ export default {
         };
     },
     mounted() {
+        this.$root.isSettingsVisible = false;
+
         if (this.autoStart) {
             this.start();
         }
@@ -124,7 +147,7 @@ export default {
             return this.isRunning ? 'Stop' : 'Start';
         },
         totalInSeconds() {
-            return this.phase.minutes * 60;
+            return this.phase.minutes;
         },
         timeLeft() {
             return this.totalInSeconds - this.timeRunned;
@@ -263,6 +286,10 @@ export default {
     color: #fff;
 }
 
+.timer-container header {
+    margin-bottom: 1rem;
+}
+
 .timer h2.timer-phrase {
     color: var(--tertiary);
     text-align: center;
@@ -329,16 +356,25 @@ export default {
 }
 
 /* switch */
-.auto-start {
+/* .auto-start {
     position: absolute;
     bottom: 1rem;
     right: 1rem;
     display: none;
+} */
+
+.auto-start {
+    display: flex;
+    align-items: center;
 }
-.auto-start p {
+
+.auto-start label {
     line-height: 1rem;
     font-size: 0.75rem;
     margin: 0.5rem;
+}
+.auto-start input {
+    display: none;
 }
 
 .ui-switch {
@@ -351,6 +387,7 @@ export default {
 .is-animated .ui-button {
     transition: margin ease-out 0.2s, border ease-in 0.2s;
 }
+
 .timer-item.active .ui-checkbox {
     opacity: 0;
     display: block;
@@ -362,11 +399,11 @@ export default {
 }
 .ui-button {
     display: block;
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
     margin: 0px 24px 2px 2px;
-    background-color: #ccc;
-    border-radius: 9px;
+    background-color: #fff;
+    border-radius: 50%;
 }
 .ui-checkbox:checked + .ui-button {
     margin: 0px 2px 2px 24px;
@@ -376,6 +413,11 @@ export default {
 .timer-item.active .timer-progess-bar,
 .timer-item.active .auto-start {
     display: block;
+}
+
+.btn-link {
+    background: none;
+    padding: 0;
 }
 
 /* for mobile */

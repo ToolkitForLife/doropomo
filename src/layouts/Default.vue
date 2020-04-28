@@ -7,13 +7,17 @@
 <style>
 @import 'https://cdn.rawgit.com/h-ibaldo/Raleway_Fixed_Numerals/master/css/rawline.css';
 
-
 body {
     font-family: 'Rawline', 'Helvetica', Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.5;
-    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgb(227, 229, 230) 100%) no-repeat;
+    background: linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgb(227, 229, 230) 100%
+        )
+        no-repeat;
 }
 
 a {
@@ -37,10 +41,10 @@ section {
 header {
 }
 
-footer{
+footer {
     background-color: #000;
-    color: #FFF;
-    padding: .5rem;
+    color: #fff;
+    padding: 0.5rem;
 }
 
 h2 {
@@ -48,7 +52,7 @@ h2 {
     font-size: 2rem;
 }
 
-p{
+p {
     line-height: 2.5rem;
 }
 
@@ -60,15 +64,14 @@ button {
     border-radius: var(--borda);
     background: rgba(255, 255, 255, 0.3);
     color: #fff;
-    padding: .75rem 1.25rem;
+    padding: 0.75rem 1.25rem;
     font-size: 1.2rem;
 }
 
 button:focus,
 button:active {
-    border: none;
+    border-color: transparent;
     background: none;
-    margin-top:2px;
 }
 button.active {
     background: rgba(0, 0, 0, 0.5);
@@ -80,6 +83,7 @@ button.active {
 
 .flex-inline {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
@@ -88,11 +92,16 @@ button.active {
     margin-left: 20px;
 }
 
+svg {
+    margin: 0.5rem;
+}
+
 /* color */
 :root {
---primary: #D50000;
---secondary: #00C853;
---tertiary: #5B4036;
---borda:8px;
+    --primary: #d50000;
+    --secondary: #00c853;
+    --tertiary: #5b4036;
+    --signal: #2196f3;
+    --borda: 8px;
 }
 </style>
