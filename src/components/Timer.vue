@@ -8,24 +8,14 @@
                 style="background-color:var(--primary)"
                 @click="setPhaseDoropomo"
             >
-                <header>
-                    <template v-if="!isRunning">
-                        <div class="flex-inline">
-                            <div class="col"></div>
-                            <div class="col">
-                                <button
-                                    type="button"
-                                    class="btn btn-link"
-                                    @click="$parent.showSettings"
-                                >
-                                    <IconSettings />Settings
-                                </button>
-                            </div>
-                        </div>
-                    </template>
-                    <template v-if="isRunning">
-                        <Progress :max="totalInSeconds" :value="timeRunned" />
-                    </template>
+                        <button
+                type="button"
+                class="btn btn-link"
+                @click="$parent.showSettings"
+                >
+                <IconSettings />Settings
+            </button>
+               <Progress :max="totalInSeconds" :value="timeRunned" />
                 </header>
                 <div class="timer-label">{{ phases.DOROPOMO.label }}</div>
                 <div class="timer-number">
@@ -41,7 +31,7 @@
                     type="button"
                     @click.stop="handleClick"
                 >{{ btnLabel }}</button>
-                <!-- <div class="auto-start">
+                <div class="auto-start">
                     <p>Auto start next?</p>
                     <span class="ui-switch is-animated">
                         <input
@@ -52,7 +42,7 @@
                         />
                         <span class="ui-button"></span>
                     </span>
-                </div>-->
+                </div>
             </div>
             <div
                 class="timer-item"
@@ -328,7 +318,7 @@ export default {
 .timer-number {
     font-size: 2rem;
     font-weight: 500;
-    margin: 2rem 0;
+    margin: 3rem 0;
 }
 
 /* card ativo */
@@ -356,12 +346,6 @@ export default {
 }
 
 /* switch */
-/* .auto-start {
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
-    display: none;
-} */
 
 .auto-start {
     display: flex;
@@ -369,13 +353,23 @@ export default {
 }
 
 .auto-start label {
-    line-height: 1rem;
-    font-size: 0.75rem;
-    margin: 0.5rem;
+    margin-right: 0.5rem;
 }
 .auto-start input {
     display: none;
 }
+
+ .timer-container .auto-start {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: none;
+}
+
+ .timer-container .auto-start p{
+    line-height: 1rem;
+    font-size: .75rem;
+ }
 
 .ui-switch {
     display: inline-block;

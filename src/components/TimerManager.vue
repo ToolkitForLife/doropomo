@@ -83,19 +83,19 @@ import Modal from '~/components/Modal.vue';
 const PHASES = {
     DOROPOMO: {
         label: 'Doropomo',
-        phrase: 'Time to work',
+        phrase: 'Time to rest',
         countRuns: 0,
         minutes: 25
     },
     SHORT_WORK: {
-        label: 'Short break',
-        phrase: 'Time to rest...',
+        label: 'Short work',
+        phrase: 'Time to work',
         countRuns: 0,
         minutes: 5
     },
     LONG_WORK: {
-        label: 'Long break',
-        phrase: 'Time to relax!',
+        label: 'Long work',
+        phrase: 'Time to work hard',
         countRuns: 0,
         minutes: 15
     }
@@ -158,7 +158,6 @@ export default {
 .timer-settings h2 {
     text-align: center;
     margin-top: 0;
-    font-weight: bold;
 }
 
 .timer-settings .flex-inline {

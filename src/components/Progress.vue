@@ -17,7 +17,7 @@ export default {
     },
     computed: {
         progressPercentage() {
-            return Math.floor((this.value / this.max) * 100) + '%';
+            return Math.floor(100 - (this.value / this.max) * 100) + '%';
         }
     }
 };
