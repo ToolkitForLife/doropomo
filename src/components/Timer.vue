@@ -137,7 +137,7 @@ export default {
             return this.isRunning ? 'Stop' : 'Start';
         },
         totalInSeconds() {
-            return this.phase.minutes;
+            return this.phase.minutes * 60;
         },
         timeLeft() {
             return this.totalInSeconds - this.timeRunned;
