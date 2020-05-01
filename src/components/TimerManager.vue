@@ -1,6 +1,6 @@
 <template>
     <div class="timer-manager">
-        <Timer :phases="phases" :auto-start="autoStart" :long-work-interval="longWorkInterval" />
+        <Timer :phases="phases" :long-work-interval="longWorkInterval" />
         <!-- TODO: show/hide settings -->
         <Modal :isActive="isSettingsVisible" @close="hideSettings">
             <div class="timer-settings">
@@ -44,21 +44,19 @@
                         </div>
                     </div>
                     <div class="flex-inline">
-                        <!-- <div>
-                            <label for="settings-auto-start">Auto start next?</label>
-                            <input id="settings-auto-start" type="checkbox" v-model="autoStart" />
-                        </div>-->
                         <div class="auto-start">
-                            <label for="auto-start">Auto start next?</label>
-                            <span class="ui-switch is-animated">
-                                <input
-                                    id="auto-start"
-                                    type="checkbox"
-                                    :value="autoStart"
-                                    class="ui-checkbox"
-                                />
-                                <span class="ui-button"></span>
-                            </span>
+                            <label for="settings-auto-start">
+                                Auto start next?
+                                <span class="ui-switch is-animated ml-2">
+                                    <input
+                                        id="settings-auto-start"
+                                        type="checkbox"
+                                        v-model="autoStart"
+                                        class="ui-checkbox"
+                                    />
+                                    <span class="ui-button"></span>
+                                </span>
+                            </label>
                         </div>
                     </div>
                     <div class="flex-inline input-group">
@@ -116,6 +114,14 @@ export default {
         };
     },
     computed: {
+        // autoStart: {
+        //     get() {
+        //         return !!this.$root.canAutoStart;
+        //     },
+        //     set(newValue) {
+        //         this.$root.canAutoStart = !!newValue;
+        //     }
+        // },
         minDoropomoValue() {
             // always rest more than work
             return (
@@ -134,9 +140,6 @@ export default {
         }
     },
     methods: {
-        setAutorStart(newState) {
-            this.autoStart = newState;
-        },
         showSettings() {
             this.isSettingsVisible = true;
         },
