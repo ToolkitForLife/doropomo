@@ -10,6 +10,7 @@
     },
     "dependencies": {
         "gridsome": "^0.7.0",
+        "gridsome-plugin-gtm": "^0.1.1",
         "vue-gtm": "^2.2.0"
     },
     "devDependencies": {
