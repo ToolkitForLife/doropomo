@@ -6,7 +6,7 @@
 
 module.exports = {
     siteName: 'Doropomo',
-    siteUrl: 'https://ToolkitForLife.github.io',
+    siteUrl: 'https://ToolkitForLife.github.io/doropomo/',
     plugins: [
         {
         use: 'gridsome-plugin-gtm',
