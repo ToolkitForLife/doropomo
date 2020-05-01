@@ -7,5 +7,14 @@
 module.exports = {
     siteName: 'Doropomo',
     siteUrl: 'https://ToolkitForLife.github.io',
-    plugins: []
+    plugins: [
+        {
+        use: 'gridsome-plugin-gtm',
+        options: {
+          id: 'GTM-WC4HCDW',
+          enabled: true,
+          debug: true
+        }
+      }
+    ]
 };
