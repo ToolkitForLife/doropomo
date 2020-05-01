@@ -9,24 +9,26 @@
         <div class="explain-item">
             <h2>How to use Doropomo?</h2>
             <div class="content colunas">
-                <div class="content-item"> 
-                    <h3><span class="number">1</span> Work</h3>
-                    <p>The working period should be shorter than the sum of breaks.</p>                
+                <div class="content-item">
+                    <h3><span class="number">1</span> Relax</h3>
+                    <p>Start with a break and enjoy your time with nothing but <strong>yourself</strong>.</p>        
+              
                 </div>
                 <div class="content-item"> 
-                    <h3><span class="number">2</span> Rest</h3>
-                    <p>Do something you like for a while and prepare to go back relaxed.</p>                
+                    <h3><span class="number">2</span> Prepare</h3>
+                    <p>Do something for a while and prepare to go back relax.</p>                
                 </div>
                 <div class="content-item"> 
-                    <h3><span class="number">3</span> Relax</h3>
-                    <p>Do a long break and enjoy your time with nothing but <strong>yourself</strong>.</p>                
+                    <h3><span class="number">3</span> Work</h3>
+                    <p>Working periods should be shorter than the break.</p>  
                 </div>
             </div>
         </div>    
         <div class="explain-item">
             <h2>Does it work?</h2>
             <div class="content">
-                <p>We believe that a 5 minutes break isn't long enough to do something you like, or to truly relax. The main idea is to have a longer break time than work time. So we “inverted” the Pomodoro timer and called it Doropomo, that is a 5 minutes work followed by a 25 minutes break time. Of course that 5 minutes is too short to have anything done, but we want to question the quality of the time you spend working and also during the breaks.</p>                
+                <p>We believe that we should be truly relaxed before working. The main idea is to have a longer break period than work periods. So we “inverted” the Pomodoro timer and called it Doropomo, that is, by default, a 25 minutes break time followed by a 5 minutes work time, then a longer work period. We want to question the quality of the time you spend working and also during the breaks.</p> 
+                <p>Check our <a href="https://www.instagram.com/doropomo.app/" target="_blank">Instagram</a> and keep in touch!</p>
             </div>
         </div>
         <div class="explain-item">
@@ -45,6 +47,21 @@ export default {
 </script>
 
 <style>
+.content-item{
+    padding-right: 1rem;
+}
+
+.content-item:last-child{
+    padding-right: 0;
+}
+.explain a{
+    color: #2F56B0;
+}
+
+.explain a:after {
+  border-top: .1em solid #2F56B0;
+}
+
 .explain h2 {
     color: var(--primary);
     text-align: center;
@@ -52,13 +69,6 @@ export default {
 
 .explain .colunas{
     display: flex;
-}
-
-/* for mobile */
-@media (max-width: 600px) {
-    .explain .colunas {
-        flex-direction: column;
-    }
 }
 
 .number{
@@ -77,5 +87,13 @@ export default {
     color: var(--tertiary);
     font-size: 1.5rem;
 }
-
+/* for mobile */
+@media (max-width: 600px) {
+    .explain .colunas {
+        flex-direction: column;
+    }
+    .content-item{
+        padding-right: 0rem;
+    }
+}
 </style>

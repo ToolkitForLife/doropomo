@@ -8,15 +8,20 @@
                 style="background-color:var(--primary)"
                 @click="setPhaseDoropomo"
             >
+                <template v-if="!isRunning">
+                    <div class="setting">
                         <button
-                type="button"
-                class="btn btn-link"
-                @click="$parent.showSettings"
-                >
-                <IconSettings />Settings
-            </button>
-               <Progress :max="totalInSeconds" :value="timeRunned" />
-                </header>
+                        type="button"
+                        class="btn btn-link"
+                        @click="$parent.showSettings"
+                        >
+                        <IconSettings />Settings
+                        </button>
+                    </div>
+                </template>
+                <template v-if="isRunning">
+                    <Progress :max="totalInSeconds" :value="timeRunned" />
+                </template>
                 <div class="timer-label">{{ phases.DOROPOMO.label }}</div>
                 <div class="timer-number">
                     {{
@@ -276,6 +281,7 @@ export default {
     color: #fff;
 }
 
+
 .timer-container header {
     margin-bottom: 1rem;
 }
@@ -295,6 +301,16 @@ export default {
     border-radius: var(--borda);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
+
+.timer-item .setting{
+    display: none;
+    height: 1.5rem;
+}
+
+.timer-item .setting button{
+    font-size: 1rem;
+}
+
 
 .timer-item.right {
     border-radius: 0 var(--borda) var(--borda) 0;
@@ -343,6 +359,10 @@ export default {
     font-size: 4rem;
     margin: 1rem 0;
     font-weight: 700;
+}
+
+.timer-item.active .setting{
+    display: flex;
 }
 
 /* switch */

@@ -12,6 +12,10 @@ export default {
 
 </script>
 <style>
+/* footer{
+    background: "$url('/timer-footer.png')";
+} */
+
 footer p{
     margin:0;
     font-size: .75rem;
@@ -19,8 +23,8 @@ footer p{
     line-height: 1rem;
 }
 
-footer p a{
-    text-decoration: underline;
+footer a{
+    color: #FFF;
 }
 
 footer .cc-license {

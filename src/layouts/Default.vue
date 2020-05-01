@@ -22,10 +22,23 @@ body {
 
 a {
     text-decoration: none;
+    position: relative;
 }
-/* a:hover {
-    text-decoration: underline;
-} */
+
+a:after {
+    border-radius: 1em;
+    border-top: 1px solid #FFF;
+    content: "";
+    position: absolute;
+    right: 100%;
+    bottom: 0;
+    left: 0;
+    transition: right .4s cubic-bezier(0,.5,0,1);
+}
+
+a:hover:after {
+    right: 0;
+}
 
 .container {
     max-width: 760px;

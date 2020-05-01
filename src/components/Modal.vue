@@ -32,7 +32,7 @@ export default {
 .modal-content {
     position: relative;
     margin: 0 auto;
-    width: 500px;
+    max-width: 500px;
 }
 
 .modal-background {
@@ -44,5 +44,14 @@ export default {
 }
 .modal.active {
     display: block;
+}
+/* for mobile */
+@media (max-width: 600px) {
+    .modal-content {
+        margin: 0 1rem;
+    }
+    .flex-inline{
+        flex-direction: column;
+    }
 }
 </style>

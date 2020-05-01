@@ -30,7 +30,7 @@ export default {
     color: #FFF;
 }
 
-a{
+.testimonial a{
     color: #FFF;
 }
 
