@@ -4,6 +4,23 @@
 import DefaultLayout from '~/layouts/Default.vue'
 
 export default function (Vue, { router, head, isClient }) {
+  //SEO head
+  head.meta.push(
+    {
+        key: 'keywords',
+        name: 'keywords',
+        content: 'doropomo, pomodoro technique, timer, work, rest, break, productivity, work/life balance'
+    },
+    {
+      name: 'author',
+      content: 'Felipe Dário & Leonardo Merlin'
+    },
+    {
+        key: 'description',
+        name: 'description',
+        content: 'Inverted Pomodoro focused for a truly work/life balance'
+    },
+  )
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
 }

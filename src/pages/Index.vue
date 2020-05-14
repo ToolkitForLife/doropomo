@@ -7,7 +7,7 @@
             <section class="container">
                 <TimerManager />
             </section>
-            <section class="container">
+            <section class="container explaining">
                 <Explaining />
             </section>    
             <section class="bg-testimonial">        
@@ -16,7 +16,7 @@
                 </div>
             </section>
             <footer>
-                <Footer />        
+                <Footer /> 
             </footer>
         </div>
     </Layout>

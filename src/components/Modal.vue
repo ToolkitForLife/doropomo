@@ -27,16 +27,14 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 0;
 }
 
 .modal-content {
     position: relative;
     margin: 0 auto;
     max-width: 500px;
-}
-
-.modal-background {
-    background: rgba(0, 0, 0, 0.3);
 }
 
 .modal {
@@ -50,7 +48,7 @@ export default {
     .modal-content {
         margin: 0 1rem;
     }
-    .flex-inline{
+    .flex-inline {
         flex-direction: column;
     }
 }

@@ -10,12 +10,8 @@
             >
                 <template v-if="!isRunning">
                     <div class="setting">
-                        <button
-                        type="button"
-                        class="btn btn-link"
-                        @click="$parent.showSettings"
-                        >
-                        <IconSettings />Settings
+                        <button type="button" class="btn btn-link" @click="$parent.showSettings">
+                            <IconSettings />Settings
                         </button>
                     </div>
                 </template>
@@ -42,7 +38,7 @@
                         <input
                             id="auto-start"
                             type="checkbox"
-                            :value="autoStart"
+                            v-model="autoStart"
                             class="ui-checkbox"
                         />
                         <span class="ui-button"></span>
@@ -106,10 +102,6 @@ export default {
         phases: {
             type: Object
         },
-        autoStart: {
-            type: Boolean,
-            default: false
-        },
         longWorkInterval: {
             type: Number,
             default: 4
@@ -138,6 +130,14 @@ export default {
         this.clearInterval();
     },
     computed: {
+        autoStart: {
+            get() {
+                return !!this.$parent.autoStart;
+            },
+            set(newValue) {
+                this.$parent.autoStart = !!newValue;
+            }
+        },
         btnLabel() {
             return this.isRunning ? 'Stop' : 'Start';
         },
@@ -246,9 +246,6 @@ export default {
             this.phase.countRuns++;
 
             const { label, minutes, countRuns } = this.phase;
-            console.info(
-                `1 Doro finished | ${label} | Minutes ${minutes} | Total runs: ${countRuns}`
-            );
 
             this.playSound();
 
@@ -281,7 +278,6 @@ export default {
     color: #fff;
 }
 
-
 .timer-container header {
     margin-bottom: 1rem;
 }
@@ -302,15 +298,14 @@ export default {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-.timer-item .setting{
+.timer-item .setting {
     display: none;
     height: 1.5rem;
 }
 
-.timer-item .setting button{
+.timer-item .setting button {
     font-size: 1rem;
 }
-
 
 .timer-item.right {
     border-radius: 0 var(--borda) var(--borda) 0;
@@ -361,7 +356,7 @@ export default {
     font-weight: 700;
 }
 
-.timer-item.active .setting{
+.timer-item.active .setting {
     display: flex;
 }
 
@@ -373,27 +368,31 @@ export default {
 }
 
 .auto-start label {
-    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
 }
 .auto-start input {
     display: none;
 }
 
- .timer-container .auto-start {
+.timer-container .auto-start {
     position: absolute;
     bottom: 1rem;
     right: 1rem;
     display: none;
 }
 
- .timer-container .auto-start p{
+.timer-container .auto-start p {
     line-height: 1rem;
-    font-size: .75rem;
- }
+    font-size: 0.75rem;
+}
 
 .ui-switch {
     display: inline-block;
     position: relative;
+    margin-left: 1rem;
     background-color: rgba(0, 0, 0, 0.25);
     border-top: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 16px;

@@ -47,6 +47,10 @@ export default {
 </script>
 
 <style>
+section.explaining{
+    background: url('../../static/seta-timer-footer.png') bottom center no-repeat;
+}
+
 .content-item{
     padding-right: 1rem;
 }

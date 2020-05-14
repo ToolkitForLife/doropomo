@@ -15,6 +15,9 @@
             <p class="who"><strong>Jake Knapp,</strong>  creator of design sprints</p>
             <a href="https://www.invisionapp.com/inside-design/jake-knapp-make-time-design-sprints-productivity/" target="_blank" class="link">https://www.invisionapp.com/inside-design/jake-knapp-make-time-design-sprints-productivity/</a>
         </div>
+        <div>
+            <a href="https://www.producthunt.com/posts/doropomo?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-doropomo" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=196628&theme=dark" alt="Doropomo - Inverted Pomodoro focused for a truly work/life balance | Product Hunt Embed" style="width: 250px; height: 54px;" width="250px" height="54px" /></a>
+        </div>
     </div>
 </template>
 
@@ -26,7 +29,7 @@ export default {
 
 <style>
 .bg-testimonial {
-    background-color: var(--primary);
+    background: url('../../static/timer-footer.png') top left repeat-x var(--primary);
     color: #FFF;
 }
 
